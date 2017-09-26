@@ -239,6 +239,7 @@ export default function createSlider(Component) {
         min,
         max,
         children,
+        railChildren,
         maximumTrackStyle,
         style,
         railStyle,
@@ -270,7 +271,9 @@ export default function createSlider(Component) {
               ...maximumTrackStyle,
               ...railStyle,
             }}
-          />
+          >
+            {railChildren}
+          </div>
           {tracks}
           <Steps
             prefixCls={prefixCls}
