@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export default class Handle extends React.Component {
   render() {
     const {
-      className, vertical, offset, style, disabled, min, max, value, ...restProps,
+      children, className, vertical, offset, style, disabled, min, max, value, ...restProps,
     } = this.props;
 
     const postionStyle = vertical ? { bottom: `${offset}%` } : { left: `${offset}%` };
@@ -30,7 +30,9 @@ export default class Handle extends React.Component {
         {...restProps}
         className={className}
         style={elStyle}
-      />
+      >
+        {children}
+      </div>
     );
   }
 }
