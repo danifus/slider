@@ -1520,6 +1520,7 @@ var Handle = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
+          children = _props.children,
           className = _props.className,
           vertical = _props.vertical,
           offset = _props.offset,
@@ -1528,7 +1529,7 @@ var Handle = function (_React$Component) {
           min = _props.min,
           max = _props.max,
           value = _props.value,
-          restProps = _objectWithoutProperties(_props, ['className', 'vertical', 'offset', 'style', 'disabled', 'min', 'max', 'value']);
+          restProps = _objectWithoutProperties(_props, ['children', 'className', 'vertical', 'offset', 'style', 'disabled', 'min', 'max', 'value']);
 
       var postionStyle = vertical ? { bottom: offset + '%' } : { left: offset + '%' };
       var elStyle = _extends({}, style, postionStyle);
@@ -1541,13 +1542,17 @@ var Handle = function (_React$Component) {
           'aria-disabled': !!disabled
         });
       }
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', _extends({
-        role: 'slider',
-        tabIndex: '0'
-      }, ariaProps, restProps, {
-        className: className,
-        style: elStyle
-      }));
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        _extends({
+          role: 'slider',
+          tabIndex: '0'
+        }, ariaProps, restProps, {
+          className: className,
+          style: elStyle
+        }),
+        children
+      );
     }
   }]);
 
@@ -4038,6 +4043,7 @@ var Slider = function (_React$Component) {
           handleStyle = _props.handleStyle,
           min = _props.min,
           max = _props.max,
+          handleChildren = _props.handleChildren,
           handleGenerator = _props.handle;
       var _state = this.state,
           value = _state.value,
@@ -4045,6 +4051,7 @@ var Slider = function (_React$Component) {
 
       var offset = this.calcOffset(value);
       var handle = handleGenerator({
+        children: handleChildren,
         className: prefixCls + '-handle',
         vertical: vertical,
         offset: offset,
